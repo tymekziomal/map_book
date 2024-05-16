@@ -22,3 +22,4 @@ def remove_user(users)-> None:
     for user in users:
         if user['name']==Kogo_szukasz:
             users.remove(user)
+
