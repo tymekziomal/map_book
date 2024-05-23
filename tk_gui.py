@@ -89,7 +89,7 @@ def update_user(i) -> None:
     users[i].location = entry_location.get()
     users[i].cords = users[i].get_cordinates()
     users[i].marker.delete()
-    users[i].marker = map_widget.set_marker(users[i].cords[0], users[i].cords[1], text=f"{users[i].location}")()
+    users[i].marker = map_widget.set_marker(users[i].cords[0], users[i].cords[1], text=f"{users[i].location}")
 
     display_users()
     button_dodaj_uztykownika.config(text='Dodaj użytkownika', command=add_new_user)
