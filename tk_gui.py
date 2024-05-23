@@ -177,6 +177,6 @@ label_opis_location_uzytkownika_wartosc.grid(row=1, column=8)
 map_widget = tkintermapview.TkinterMapView(ramka_szczegoly_uzytkownika, width=800, height=400)
 map_widget.grid(row=2, column=0, columnspan=9)
 map_widget.set_position(52.21, 21.00)
-map_widget.set_zoom(6)
+map_widget.set_zoom(5)
 
 root.mainloop()
