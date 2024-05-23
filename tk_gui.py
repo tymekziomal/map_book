@@ -8,31 +8,31 @@ users: list = []
 
 class User:
     def __init__(self, name, surname, posts, location):
-        self.nam: str = name
+        self.name: str = name
         self.surname: str = surname
         self.posts: int = posts
         self.location: str = location
-        self.cords: list = self.get_cordinates()
+        self.cords: list = self.get_coordinates()
         self.marker: object = map_widget.set_marker(self.cords[0], self.cords[1], text=f"{self.location}")
 
-    def get_cordinates(self) -> list[float]:
-        """"
-        Function to get cordinates of user
-        :return: list of cordinates of user
-        """""
-        url: str = f'https://pl.wikipedia.org/wiki/{self.location}'
+    def get_coordinates(self) -> list[float]:
+        """
+        Function to get coordinates of user
+        :return: list of coordinates of user
+        """
+        url: str = f"https://pl.wikipedia.org/wiki/{self.location}"
         response = requests.get(url)
-        response_html = BeautifulSoup(response.text, 'html.parser')
-        latitude = float(response_html.select('.latitude')[1].text.replace(',', '.'))
-        longitude = float(response_html.select('.longitude')[1].text.replace(',', '.'))
+        response_html = BeautifulSoup(response.text, "html.parser")
+        latitude = float(response_html.select(".latitude")[1].text.replace(",", "."))
+        longitude = float(response_html.select(".longitude")[1].text.replace(",", "."))
         return [latitude, longitude]
 
 
 def add_new_user() -> None:
-    """"
+    """
     Function to add new user
     :return:
-    """""
+    """
     user = User(
         name=entry_name.get(),
         surname=entry_surname.get(),
@@ -177,6 +177,6 @@ label_opis_location_uzytkownika_wartosc.grid(row=1, column=8)
 map_widget = tkintermapview.TkinterMapView(ramka_szczegoly_uzytkownika, width=800, height=400)
 map_widget.grid(row=2, column=0, columnspan=9)
 map_widget.set_position(52.21, 21.00)
-map_widget.set_zoom(5)
+map_widget.set_zoom(6)
 
 root.mainloop()
