@@ -11,7 +11,7 @@ class User:
         self.nam: str = name
         self.surname: str = surname
         self.posts: int = posts
-        self.location: str = location
+        self.location: str = locationusers
         self.cords: list = self.get_cordinates()
         self.marker: object = map_widget.set_marker(self.cords[0], self.cords[1], text=f"{self.location}")
 
